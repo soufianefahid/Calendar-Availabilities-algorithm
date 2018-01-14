@@ -10,7 +10,10 @@ If you need to add extra tests:
 
 The algorithm use : "calculate the availabilities for the next 7 days of the parameter start_at"
 Algorithm explination:
+
+
   1- "Fetch and format the openings from the data"
+
     1-1- returning format :
             {Date : [Event]}
 
