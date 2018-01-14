@@ -206,4 +206,14 @@ class EventTest < ActiveSupport::TestCase
 
   end
 
+  test "weekly_opening_to_fixed_opening method" do
+
+    weekly = Event.create kind: 'opening', starts_at: DateTime.parse("2014-08-04 08:30"), ends_at: DateTime.parse("2014-08-04 10:00"), weekly_recurring: true
+    day = Date.parse("2014-01-15")
+    fixed = Event.weekly_opening_to_fixed_opening(day, weekly)
+    assert_equal DateTime.parse("2014-01-15 08:30"), fixed.starts_at
+    assert_equal DateTime.parse("2014-01-15 10:00"), fixed.ends_at
+
+  end
+
 end
