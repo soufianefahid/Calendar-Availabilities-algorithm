@@ -1,25 +1,23 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This project contains an implemention (Using Ruby on Rails) of a method a that calculate the availabilities within a calendar :
 
-Things you may want to cover:
 
-* Ruby version
+Command to run my personnal tests:
+  To run the test : "bin/rails test -b test/models/event_test.rb"
+If you need to add extra tests:
+  test/models/event_test.rb
 
-* System dependencies
+The algorithm use : "calculate the availabilities for the next 7 days of the parameter start_at"
+Algorithm explination:
+  1- "Fetch and format the openings from the data"
+    1-1- returning format :
+            {Date : [Event]}
 
-* Configuration
+  2- Fetch and formate the appointments
 
-* Database creation
+  3- Calculate the opening slots for one day
 
-* Database initialization
+  4-Reject the booked slots from the the opening day slots using the appointments
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# Calendar-Availabilities-algorithm
+  5- Format and display the output
