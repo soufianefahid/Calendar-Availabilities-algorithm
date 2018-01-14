@@ -4,8 +4,12 @@ This project contains an implemention (Using Ruby on Rails) of a method a that c
 
 
 Command to run my personnal tests:
+
   To run the test : "bin/rails test -b test/models/event_test.rb"
+
+
 If you need to add extra tests:
+
   test/models/event_test.rb
 
 The algorithm use : "calculate the availabilities for the next 7 days of the parameter start_at"
