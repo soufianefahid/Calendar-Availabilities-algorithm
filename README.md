@@ -1,6 +1,6 @@
 # README
 
-This project contains an implementation (Using Ruby on Rails) of a method that calculates the availabilities within a calendar. :
+This project contains an implementation (Using Ruby on Rails) of a method that calculates the availabilities within a calendar.
 
 
 Command to run my personal tests: "bin/rails test -b test/models/event_test.rb"
