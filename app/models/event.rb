@@ -1,9 +1,10 @@
 class Event < ApplicationRecord
 
-  scope :weekly_recurring, -> { where(weekly_recurring: true)}
-  scope :not_weekly_recurring, -> { where(weekly_recurring: false)}
   scope :opening, -> { where(kind: 'opening') }
   scope :appointment, -> { where(kind: 'appointment') }
+  scope :weekly_recurring, -> { opening.where(weekly_recurring: true)}
+  scope :not_weekly_recurring, -> { opening.where(weekly_recurring: false)}
+
 
   class << self
 
@@ -22,9 +23,7 @@ class Event < ApplicationRecord
 
         if !day_opening_slots.empty?
           available_day_slots = available_slots(day_opening_slots, appointments[day])
-          if !available_day_slots.empty?
-            available_day_slots = available_day_slots.sort
-          end
+          available_day_slots = available_day_slots.try(:sort)
         end
 
         availabilities << formating_ouptut(day, available_day_slots)
