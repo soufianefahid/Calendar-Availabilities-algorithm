@@ -22387,3 +22387,242 @@ EventTest: test_weekly_opening_to_fixed_opening_method
   [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "events" ("starts_at", "ends_at", "kind", "weekly_recurring", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["starts_at", "2014-08-04 08:30:00"], ["ends_at", "2014-08-04 10:00:00"], ["kind", "opening"], ["weekly_recurring", "t"], ["created_at", "2018-01-15 13:40:13.025934"], ["updated_at", "2018-01-15 13:40:13.025934"]]
   [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
   [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.4ms)[0m  [1m[31mDELETE FROM "events"[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "events" ("starts_at", "ends_at", "kind", "weekly_recurring", "created_at", "updated_at", "id") VALUES ('2018-01-13 13:11:23', '2018-01-13 13:11:23', 'MyString', 'f', '2018-01-15 13:41:34.789279', '2018-01-15 13:41:34.789279', 980190962)[0m
+  [1m[36mFixture Insert (0.3ms)[0m  [1m[32mINSERT INTO "events" ("starts_at", "ends_at", "kind", "weekly_recurring", "created_at", "updated_at", "id") VALUES ('2018-01-13 13:11:23', '2018-01-13 13:11:23', 'MyString', 'f', '2018-01-15 13:41:34.789279', '2018-01-15 13:41:34.789279', 298486374)[0m
+  [1m[35m (78.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------
+EventTest: test_available_slots_method_with_no_appointment
+----------------------------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "events" ("starts_at", "ends_at", "kind", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["starts_at", "2014-08-09 09:30:00"], ["ends_at", "2014-08-09 10:30:00"], ["kind", "appointment"], ["created_at", "2018-01-15 13:41:34.890536"], ["updated_at", "2018-01-15 13:41:34.890536"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "events" ("starts_at", "ends_at", "kind", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["starts_at", "2014-08-09 11:30:00"], ["ends_at", "2014-08-09 12:00:00"], ["kind", "appointment"], ["created_at", "2018-01-15 13:41:34.893982"], ["updated_at", "2018-01-15 13:41:34.893982"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------
+EventTest: test_separated_openings
+----------------------------------
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "events" ("starts_at", "ends_at", "kind", "weekly_recurring", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["starts_at", "2014-08-05 08:00:00"], ["ends_at", "2014-08-05 10:30:00"], ["kind", "opening"], ["weekly_recurring", "f"], ["created_at", "2018-01-15 13:41:34.898276"], ["updated_at", "2018-01-15 13:41:34.898276"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "events" ("starts_at", "ends_at", "kind", "weekly_recurring", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["starts_at", "2014-08-05 10:30:00"], ["ends_at", "2014-08-05 12:00:00"], ["kind", "opening"], ["weekly_recurring", "f"], ["created_at", "2018-01-15 13:41:34.901381"], ["updated_at", "2018-01-15 13:41:34.901381"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "events" ("starts_at", "ends_at", "kind", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["starts_at", "2014-08-05 08:00:00"], ["ends_at", "2014-08-05 10:00:00"], ["kind", "appointment"], ["created_at", "2018-01-15 13:41:34.903879"], ["updated_at", "2018-01-15 13:41:34.903879"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."kind" = ? AND "events"."kind" = ? AND "events"."weekly_recurring" = ? AND (starts_at < '2014-08-12 00:00:00')[0m  [["kind", "opening"], ["kind", "opening"], ["weekly_recurring", "t"]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."kind" = ? AND "events"."kind" = ? AND "events"."weekly_recurring" = ? AND ("events"."starts_at" BETWEEN ? AND ?)[0m  [["kind", "opening"], ["kind", "opening"], ["weekly_recurring", "f"], ["starts_at", "2014-08-05"], ["starts_at", "2014-08-11"]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."kind" = ? AND ("events"."starts_at" BETWEEN ? AND ?)[0m  [["kind", "appointment"], ["starts_at", "2014-08-05 00:00:00"], ["starts_at", "2014-08-11 00:00:00"]]
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------
+EventTest: test_multiplte_appointements_without_an_opening
+----------------------------------------------------------
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "events" ("starts_at", "ends_at", "kind", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["starts_at", "2014-08-01 10:30:00"], ["ends_at", "2014-08-11 11:30:00"], ["kind", "appointment"], ["created_at", "2018-01-15 13:41:34.920488"], ["updated_at", "2018-01-15 13:41:34.920488"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "events" ("starts_at", "ends_at", "kind", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["starts_at", "2014-08-08 15:00:00"], ["ends_at", "2014-08-11 15:30:00"], ["kind", "appointment"], ["created_at", "2018-01-15 13:41:34.924183"], ["updated_at", "2018-01-15 13:41:34.924183"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."kind" = ? AND "events"."kind" = ? AND "events"."weekly_recurring" = ? AND (starts_at < '2014-08-14 00:00:00')[0m  [["kind", "opening"], ["kind", "opening"], ["weekly_recurring", "t"]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."kind" = ? AND "events"."kind" = ? AND "events"."weekly_recurring" = ? AND ("events"."starts_at" BETWEEN ? AND ?)[0m  [["kind", "opening"], ["kind", "opening"], ["weekly_recurring", "f"], ["starts_at", "2014-08-07"], ["starts_at", "2014-08-13"]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."kind" = ? AND ("events"."starts_at" BETWEEN ? AND ?)[0m  [["kind", "appointment"], ["starts_at", "2014-08-07 00:00:00"], ["starts_at", "2014-08-13 00:00:00"]]
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+--------------------------------------
+EventTest: test_available_slots_method
+--------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "events" ("starts_at", "ends_at", "kind", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["starts_at", "2014-08-08 09:30:00"], ["ends_at", "2014-08-08 10:30:00"], ["kind", "appointment"], ["created_at", "2018-01-15 13:41:34.932420"], ["updated_at", "2018-01-15 13:41:34.932420"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "events" ("starts_at", "ends_at", "kind", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["starts_at", "2014-08-08 11:30:00"], ["ends_at", "2014-08-08 12:00:00"], ["kind", "appointment"], ["created_at", "2018-01-15 13:41:34.934770"], ["updated_at", "2018-01-15 13:41:34.934770"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------
+EventTest: test_day_opening_slots_method
+----------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "events" ("starts_at", "ends_at", "kind", "weekly_recurring", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["starts_at", "2014-08-04 09:30:00"], ["ends_at", "2014-08-04 10:00:00"], ["kind", "opening"], ["weekly_recurring", "t"], ["created_at", "2018-01-15 13:41:34.938276"], ["updated_at", "2018-01-15 13:41:34.938276"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "events" ("starts_at", "ends_at", "kind", "weekly_recurring", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["starts_at", "2014-08-04 10:00:00"], ["ends_at", "2014-08-04 10:30:00"], ["kind", "opening"], ["weekly_recurring", "f"], ["created_at", "2018-01-15 13:41:34.940630"], ["updated_at", "2018-01-15 13:41:34.940630"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."kind" = ? AND "events"."kind" = ? AND "events"."weekly_recurring" = ? AND (starts_at < '2014-08-10 00:00:00')[0m  [["kind", "opening"], ["kind", "opening"], ["weekly_recurring", "t"]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."kind" = ? AND "events"."kind" = ? AND "events"."weekly_recurring" = ? AND ("events"."starts_at" BETWEEN ? AND ?)[0m  [["kind", "opening"], ["kind", "opening"], ["weekly_recurring", "f"], ["starts_at", "2014-08-03 00:00:00"], ["starts_at", "2014-08-09 00:00:00"]]
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------------------
+EventTest: test_weekly_opening_to_fixed_opening_method
+------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "events" ("starts_at", "ends_at", "kind", "weekly_recurring", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["starts_at", "2014-08-04 08:30:00"], ["ends_at", "2014-08-04 10:00:00"], ["kind", "opening"], ["weekly_recurring", "t"], ["created_at", "2018-01-15 13:41:34.946499"], ["updated_at", "2018-01-15 13:41:34.946499"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------
+EventTest: test_appointments_method
+-----------------------------------
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "events" ("starts_at", "ends_at", "kind", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["starts_at", "2014-08-11 10:30:00"], ["ends_at", "2014-08-11 11:30:00"], ["kind", "appointment"], ["created_at", "2018-01-15 13:41:34.950890"], ["updated_at", "2018-01-15 13:41:34.950890"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "events" ("starts_at", "ends_at", "kind", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["starts_at", "2014-08-11 15:00:00"], ["ends_at", "2014-08-11 15:30:00"], ["kind", "appointment"], ["created_at", "2018-01-15 13:41:34.953982"], ["updated_at", "2018-01-15 13:41:34.953982"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "events" ("starts_at", "ends_at", "kind", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["starts_at", "2014-08-12 15:00:00"], ["ends_at", "2014-08-12 15:30:00"], ["kind", "appointment"], ["created_at", "2018-01-15 13:41:34.955828"], ["updated_at", "2018-01-15 13:41:34.955828"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."kind" = ? AND ("events"."starts_at" BETWEEN ? AND ?)[0m  [["kind", "appointment"], ["starts_at", "2014-08-06 00:00:00"], ["starts_at", "2014-08-14 00:00:00"]]
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------
+EventTest: test_openings_method
+-------------------------------
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "events" ("starts_at", "ends_at", "kind", "weekly_recurring", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["starts_at", "2014-08-04 09:30:00"], ["ends_at", "2014-08-04 12:30:00"], ["kind", "opening"], ["weekly_recurring", "t"], ["created_at", "2018-01-15 13:41:34.959651"], ["updated_at", "2018-01-15 13:41:34.959651"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "events" ("starts_at", "ends_at", "kind", "weekly_recurring", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["starts_at", "2014-08-11 09:30:00"], ["ends_at", "2014-08-11 12:30:00"], ["kind", "opening"], ["weekly_recurring", "t"], ["created_at", "2018-01-15 13:41:34.962242"], ["updated_at", "2018-01-15 13:41:34.962242"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."kind" = ? AND "events"."kind" = ? AND "events"."weekly_recurring" = ? AND (starts_at < '2014-08-14 00:00:00')[0m  [["kind", "opening"], ["kind", "opening"], ["weekly_recurring", "t"]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."kind" = ? AND "events"."kind" = ? AND "events"."weekly_recurring" = ? AND ("events"."starts_at" BETWEEN ? AND ?)[0m  [["kind", "opening"], ["kind", "opening"], ["weekly_recurring", "f"], ["starts_at", "2014-08-07"], ["starts_at", "2014-08-13"]]
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------
+EventTest: test_one_simple_test_example
+---------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "events" ("starts_at", "ends_at", "kind", "weekly_recurring", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["starts_at", "2014-08-04 09:30:00"], ["ends_at", "2014-08-04 12:30:00"], ["kind", "opening"], ["weekly_recurring", "t"], ["created_at", "2018-01-15 13:41:34.967851"], ["updated_at", "2018-01-15 13:41:34.967851"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "events" ("starts_at", "ends_at", "kind", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["starts_at", "2014-08-11 10:30:00"], ["ends_at", "2014-08-11 11:30:00"], ["kind", "appointment"], ["created_at", "2018-01-15 13:41:34.969858"], ["updated_at", "2018-01-15 13:41:34.969858"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."kind" = ? AND "events"."kind" = ? AND "events"."weekly_recurring" = ? AND (starts_at < '2014-08-17 00:00:00')[0m  [["kind", "opening"], ["kind", "opening"], ["weekly_recurring", "t"]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."kind" = ? AND "events"."kind" = ? AND "events"."weekly_recurring" = ? AND ("events"."starts_at" BETWEEN ? AND ?)[0m  [["kind", "opening"], ["kind", "opening"], ["weekly_recurring", "f"], ["starts_at", "2014-08-10"], ["starts_at", "2014-08-16"]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."kind" = ? AND ("events"."starts_at" BETWEEN ? AND ?)[0m  [["kind", "appointment"], ["starts_at", "2014-08-10 00:00:00"], ["starts_at", "2014-08-16 00:00:00"]]
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------------
+EventTest: test_example_for_future_opening_events_creation
+----------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "events" ("starts_at", "ends_at", "kind", "weekly_recurring", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["starts_at", "2014-08-10 09:30:00"], ["ends_at", "2014-08-10 12:30:00"], ["kind", "opening"], ["weekly_recurring", "t"], ["created_at", "2018-01-15 13:41:34.975924"], ["updated_at", "2018-01-15 13:41:34.975924"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "events" ("starts_at", "ends_at", "kind", "weekly_recurring", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["starts_at", "2014-08-10 14:30:00"], ["ends_at", "2014-08-10 18:30:00"], ["kind", "opening"], ["weekly_recurring", "t"], ["created_at", "2018-01-15 13:41:34.978076"], ["updated_at", "2018-01-15 13:41:34.978076"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "events" ("starts_at", "ends_at", "kind", "weekly_recurring", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["starts_at", "2014-08-03 14:30:00"], ["ends_at", "2014-08-03 18:30:00"], ["kind", "opening"], ["weekly_recurring", "f"], ["created_at", "2018-01-15 13:41:34.980151"], ["updated_at", "2018-01-15 13:41:34.980151"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "events" ("starts_at", "ends_at", "kind", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["starts_at", "2014-08-03 15:00:00"], ["ends_at", "2014-08-03 16:00:00"], ["kind", "appointment"], ["created_at", "2018-01-15 13:41:34.982660"], ["updated_at", "2018-01-15 13:41:34.982660"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mEvent Load (0.3ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."kind" = ? AND "events"."kind" = ? AND "events"."weekly_recurring" = ? AND (starts_at < '2014-08-08 00:00:00')[0m  [["kind", "opening"], ["kind", "opening"], ["weekly_recurring", "t"]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."kind" = ? AND "events"."kind" = ? AND "events"."weekly_recurring" = ? AND ("events"."starts_at" BETWEEN ? AND ?)[0m  [["kind", "opening"], ["kind", "opening"], ["weekly_recurring", "f"], ["starts_at", "2014-08-01"], ["starts_at", "2014-08-07"]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."kind" = ? AND ("events"."starts_at" BETWEEN ? AND ?)[0m  [["kind", "appointment"], ["starts_at", "2014-08-01 00:00:00"], ["starts_at", "2014-08-07 00:00:00"]]
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------------------------------------------------------------
+EventTest: test_multiple_opening_events_without_appointements_and_weekly_recurring_openings
+-------------------------------------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "events" ("starts_at", "ends_at", "kind", "weekly_recurring", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["starts_at", "2014-08-04 08:00:00"], ["ends_at", "2014-08-04 12:30:00"], ["kind", "opening"], ["weekly_recurring", "f"], ["created_at", "2018-01-15 13:41:34.989325"], ["updated_at", "2018-01-15 13:41:34.989325"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "events" ("starts_at", "ends_at", "kind", "weekly_recurring", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["starts_at", "2014-08-11 14:30:00"], ["ends_at", "2014-08-11 18:30:00"], ["kind", "opening"], ["weekly_recurring", "f"], ["created_at", "2018-01-15 13:41:34.991341"], ["updated_at", "2018-01-15 13:41:34.991341"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."kind" = ? AND "events"."kind" = ? AND "events"."weekly_recurring" = ? AND (starts_at < '2014-08-14 00:00:00')[0m  [["kind", "opening"], ["kind", "opening"], ["weekly_recurring", "t"]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."kind" = ? AND "events"."kind" = ? AND "events"."weekly_recurring" = ? AND ("events"."starts_at" BETWEEN ? AND ?)[0m  [["kind", "opening"], ["kind", "opening"], ["weekly_recurring", "f"], ["starts_at", "2014-08-07"], ["starts_at", "2014-08-13"]]
+  [1m[36mEvent Load (0.7ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."kind" = ? AND ("events"."starts_at" BETWEEN ? AND ?)[0m  [["kind", "appointment"], ["starts_at", "2014-08-07 00:00:00"], ["starts_at", "2014-08-13 00:00:00"]]
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+---------------------------------------------------------------------------
+EventTest: test_multiple_weekly_recurring_and_not_weekly_recurring_openings
+---------------------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "events" ("starts_at", "ends_at", "kind", "weekly_recurring", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["starts_at", "2014-08-04 09:30:00"], ["ends_at", "2014-08-04 10:30:00"], ["kind", "opening"], ["weekly_recurring", "t"], ["created_at", "2018-01-15 13:41:35.000355"], ["updated_at", "2018-01-15 13:41:35.000355"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "events" ("starts_at", "ends_at", "kind", "weekly_recurring", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["starts_at", "2014-08-04 11:30:00"], ["ends_at", "2014-08-04 14:00:00"], ["kind", "opening"], ["weekly_recurring", "t"], ["created_at", "2018-01-15 13:41:35.003317"], ["updated_at", "2018-01-15 13:41:35.003317"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "events" ("starts_at", "ends_at", "kind", "weekly_recurring", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["starts_at", "2014-08-11 15:00:00"], ["ends_at", "2014-08-11 18:00:00"], ["kind", "opening"], ["weekly_recurring", "f"], ["created_at", "2018-01-15 13:41:35.006534"], ["updated_at", "2018-01-15 13:41:35.006534"]]
+  [1m[35m (0.7ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "events" ("starts_at", "ends_at", "kind", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["starts_at", "2014-08-11 12:00:00"], ["ends_at", "2014-08-11 13:30:00"], ["kind", "appointment"], ["created_at", "2018-01-15 13:41:35.008725"], ["updated_at", "2018-01-15 13:41:35.008725"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."kind" = ? AND "events"."kind" = ? AND "events"."weekly_recurring" = ? AND (starts_at < '2014-08-17 00:00:00')[0m  [["kind", "opening"], ["kind", "opening"], ["weekly_recurring", "t"]]
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."kind" = ? AND "events"."kind" = ? AND "events"."weekly_recurring" = ? AND ("events"."starts_at" BETWEEN ? AND ?)[0m  [["kind", "opening"], ["kind", "opening"], ["weekly_recurring", "f"], ["starts_at", "2014-08-10"], ["starts_at", "2014-08-16"]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."kind" = ? AND ("events"."starts_at" BETWEEN ? AND ?)[0m  [["kind", "appointment"], ["starts_at", "2014-08-10 00:00:00"], ["starts_at", "2014-08-16 00:00:00"]]
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------
+EventTest: test_overlapping_openings
+------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "events" ("starts_at", "ends_at", "kind", "weekly_recurring", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["starts_at", "2014-08-05 08:00:00"], ["ends_at", "2014-08-05 10:00:00"], ["kind", "opening"], ["weekly_recurring", "t"], ["created_at", "2018-01-15 13:41:35.020271"], ["updated_at", "2018-01-15 13:41:35.020271"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "events" ("starts_at", "ends_at", "kind", "weekly_recurring", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["starts_at", "2014-08-12 09:00:00"], ["ends_at", "2014-08-12 11:00:00"], ["kind", "opening"], ["weekly_recurring", "f"], ["created_at", "2018-01-15 13:41:35.022765"], ["updated_at", "2018-01-15 13:41:35.022765"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "events" ("starts_at", "ends_at", "kind", "weekly_recurring", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["starts_at", "2014-08-12 09:00:00"], ["ends_at", "2014-08-12 10:00:00"], ["kind", "opening"], ["weekly_recurring", "f"], ["created_at", "2018-01-15 13:41:35.025595"], ["updated_at", "2018-01-15 13:41:35.025595"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "events" ("starts_at", "ends_at", "kind", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["starts_at", "2014-08-12 09:00:00"], ["ends_at", "2014-08-12 09:30:00"], ["kind", "appointment"], ["created_at", "2018-01-15 13:41:35.027615"], ["updated_at", "2018-01-15 13:41:35.027615"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mEvent Load (0.8ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."kind" = ? AND "events"."kind" = ? AND "events"."weekly_recurring" = ? AND (starts_at < '2014-08-19 00:00:00')[0m  [["kind", "opening"], ["kind", "opening"], ["weekly_recurring", "t"]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."kind" = ? AND "events"."kind" = ? AND "events"."weekly_recurring" = ? AND ("events"."starts_at" BETWEEN ? AND ?)[0m  [["kind", "opening"], ["kind", "opening"], ["weekly_recurring", "f"], ["starts_at", "2014-08-12"], ["starts_at", "2014-08-18"]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."kind" = ? AND ("events"."starts_at" BETWEEN ? AND ?)[0m  [["kind", "appointment"], ["starts_at", "2014-08-12 00:00:00"], ["starts_at", "2014-08-18 00:00:00"]]
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+----------------------------------------------------
+EventTest: test_dupilcated_opening_with_a_booked_day
+----------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "events" ("starts_at", "ends_at", "kind", "weekly_recurring", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["starts_at", "2014-08-05 14:00:00"], ["ends_at", "2014-08-05 18:30:00"], ["kind", "opening"], ["weekly_recurring", "t"], ["created_at", "2018-01-15 13:41:35.037421"], ["updated_at", "2018-01-15 13:41:35.037421"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "events" ("starts_at", "ends_at", "kind", "weekly_recurring", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["starts_at", "2014-08-12 14:30:00"], ["ends_at", "2014-08-05 18:30:00"], ["kind", "opening"], ["weekly_recurring", "t"], ["created_at", "2018-01-15 13:41:35.039899"], ["updated_at", "2018-01-15 13:41:35.039899"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "events" ("starts_at", "ends_at", "kind", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["starts_at", "2014-08-12 14:30:00"], ["ends_at", "2014-08-12 15:30:00"], ["kind", "appointment"], ["created_at", "2018-01-15 13:41:35.042436"], ["updated_at", "2018-01-15 13:41:35.042436"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "events" ("starts_at", "ends_at", "kind", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["starts_at", "2014-08-12 15:30:00"], ["ends_at", "2014-08-12 16:00:00"], ["kind", "appointment"], ["created_at", "2018-01-15 13:41:35.044860"], ["updated_at", "2018-01-15 13:41:35.044860"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "events" ("starts_at", "ends_at", "kind", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["starts_at", "2014-08-12 16:00:00"], ["ends_at", "2014-08-12 17:00:00"], ["kind", "appointment"], ["created_at", "2018-01-15 13:41:35.047655"], ["updated_at", "2018-01-15 13:41:35.047655"]]
+  [1m[35m (0.6ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "events" ("starts_at", "ends_at", "kind", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["starts_at", "2014-08-12 17:00:00"], ["ends_at", "2014-08-12 18:30:00"], ["kind", "appointment"], ["created_at", "2018-01-15 13:41:35.049578"], ["updated_at", "2018-01-15 13:41:35.049578"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."kind" = ? AND "events"."kind" = ? AND "events"."weekly_recurring" = ? AND (starts_at < '2014-08-17 00:00:00')[0m  [["kind", "opening"], ["kind", "opening"], ["weekly_recurring", "t"]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."kind" = ? AND "events"."kind" = ? AND "events"."weekly_recurring" = ? AND ("events"."starts_at" BETWEEN ? AND ?)[0m  [["kind", "opening"], ["kind", "opening"], ["weekly_recurring", "f"], ["starts_at", "2014-08-10"], ["starts_at", "2014-08-16"]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."kind" = ? AND ("events"."starts_at" BETWEEN ? AND ?)[0m  [["kind", "appointment"], ["starts_at", "2014-08-10 00:00:00"], ["starts_at", "2014-08-16 00:00:00"]]
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------------------------------
+EventTest: test_multiple_opening_events_without_appointements
+-------------------------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "events" ("starts_at", "ends_at", "kind", "weekly_recurring", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["starts_at", "2014-08-04 08:00:00"], ["ends_at", "2014-08-04 12:30:00"], ["kind", "opening"], ["weekly_recurring", "t"], ["created_at", "2018-01-15 13:41:35.058213"], ["updated_at", "2018-01-15 13:41:35.058213"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "events" ("starts_at", "ends_at", "kind", "weekly_recurring", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["starts_at", "2014-08-11 14:30:00"], ["ends_at", "2014-08-11 18:30:00"], ["kind", "opening"], ["weekly_recurring", "f"], ["created_at", "2018-01-15 13:41:35.061095"], ["updated_at", "2018-01-15 13:41:35.061095"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mEvent Load (0.2ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."kind" = ? AND "events"."kind" = ? AND "events"."weekly_recurring" = ? AND (starts_at < '2014-08-14 00:00:00')[0m  [["kind", "opening"], ["kind", "opening"], ["weekly_recurring", "t"]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."kind" = ? AND "events"."kind" = ? AND "events"."weekly_recurring" = ? AND ("events"."starts_at" BETWEEN ? AND ?)[0m  [["kind", "opening"], ["kind", "opening"], ["weekly_recurring", "f"], ["starts_at", "2014-08-07"], ["starts_at", "2014-08-13"]]
+  [1m[36mEvent Load (0.1ms)[0m  [1m[34mSELECT "events".* FROM "events" WHERE "events"."kind" = ? AND ("events"."starts_at" BETWEEN ? AND ?)[0m  [["kind", "appointment"], ["starts_at", "2014-08-07 00:00:00"], ["starts_at", "2014-08-13 00:00:00"]]
+  [1m[35m (0.7ms)[0m  [1m[31mrollback transaction[0m

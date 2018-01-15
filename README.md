@@ -8,6 +8,7 @@ Command to run my personal tests: "bin/rails test -b test/models/event_test.rb"
 Extra tests need to be added to the folder: test/models/event_test.rb
 
 The algorithm use: "calculate the availabilities for the next 7 days of the parameter start_at"
+
 Algorithm explination:
 
 
